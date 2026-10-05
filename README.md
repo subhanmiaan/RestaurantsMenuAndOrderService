@@ -1,41 +1,93 @@
-# GOODFILLERS — Motion Edition
+<div align="center">
 
-A complete eight-page restaurant demo made by Subhan / @subhanmiaan.
+# GOODFILLERS ↗ Motion Edition
 
-## Pages
+**An eight-page restaurant demo with a complete browsing-to-checkout experience.**
 
-Home, Menu, About, Offers, Gallery, Reviews, Locations and Contact. Each has its own URL, HTML file, heading and search/social metadata. A custom 404 page is included.
+Vanilla JavaScript · Responsive layouts · Session-persistent cart · Expressive motion
 
-## Source
+![HTML](https://img.shields.io/badge/HTML5-Multi--page-3151DF?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-Motion-182459?style=flat-square&logo=css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-No_framework-F7DF1E?style=flat-square&logo=javascript&logoColor=111111)
 
-Plain HTML, CSS and JavaScript. No framework, build command, npm install, API key or database is required. Shared behaviour is in `app.js`; responsive styles and animation are in `style.css`. Page HTML is pre-rendered for immediate content and graceful no-JavaScript browsing, then enhanced by the shared script. Editable menu and section components live in `app.js`; keep static page HTML in sync when changing content.
+[Features](#features) · [Quick start](#quick-start) · [Architecture](#architecture) · [Deploy](#deployment)
 
-## GitHub and Vercel
+</div>
 
-Upload the contents of this folder to the root of a GitHub repository. Import that repository into Vercel. Use the Other preset, leave the build command empty, and use `.` as the output directory. The supplied `vercel.json` configures the output directory and trailing-slash page URLs.
+## The project
 
-For local use, serve this folder using VS Code Live Server or another static web server. Root-relative page links are designed for hosting at a domain root, not opening files directly through file:// or a GitHub Pages repository subdirectory.
+GOODFILLERS is a restaurant website demo by **Muhammad Subhan**. It brings together a substantial menu, cart interactions, delivery/takeaway choices and a consistent visual identity across eight distinct pages.
+
+It is built with plain HTML, CSS and JavaScript. No framework, npm install, API key or database is required. **Checkout is simulated: no order is sent and no payment is processed.**
 
 ## Features
 
-- Menu filtering across 15 categories, pizza sizes/crusts and wing portions.
-- Delivery and takeaway with cart quantity controls and session persistence between pages.
-- Native form validation and simulated checkout with demo order numbers.
-- WhatsApp message preparation; visitor explicitly sends the message in WhatsApp.
-- Gallery filters/lightbox, review carousel and full-screen mobile navigation.
-- Cinematic page entrances, scroll reveals, desktop image parallax, subtle card tilt, button sheen, add-to-bag animation, page transitions and mobile order dock.
-- Keyboard focus states, native accessible dialogs and reduced-motion support.
+| Area | Included behavior |
+|---|---|
+| Menu | Filters across 15 categories, pizza sizes/crusts and wing portions |
+| Cart | Quantity controls, item removal and session persistence between pages |
+| Checkout | Delivery/takeaway selection, native form validation and demo order numbers |
+| Contact | WhatsApp message preparation; the visitor explicitly sends the draft |
+| Gallery | Category filters and image lightbox |
+| Reviews | Demo review carousel |
+| Navigation | Eight page URLs, mobile menu, order dock and back-to-top control |
+| Motion | Page entrances, scroll reveals, parallax, card tilt, button sheen and add-to-bag animation |
+| Accessibility | Focus styles, labeled controls, dialog behavior and reduced-motion support |
+
+## Pages
+
+Home `/` · Menu `/menu/` · About `/about/` · Offers `/offers/` · Gallery `/gallery/` · Reviews `/reviews/` · Locations `/locations/` · Contact `/contact/`
+
+Each page has its own HTML file, heading and metadata. A custom 404 page is included.
+
+## Quick start
+
+```bash
+git clone https://github.com/subhanmiaan/RestaurantsMenuAndOrderService.git
+cd RestaurantsMenuAndOrderService
+python3 -m http.server 8000
+```
+
+Open **http://localhost:8000**. Python 3 is only used here to serve static files; VS Code Live Server or another static server works too.
+
+## Architecture
+
+| File or directory | Responsibility |
+|---|---|
+| `index.html` and page directories | Static, pre-rendered page content and shared shell |
+| `app.js` | Menu data, reusable page sections, cart, checkout and interactions |
+| `style.css` | Responsive layout, visual identity and animation |
+| `assets/` | Local restaurant logo and printed menu |
+| `vercel.json` | Static output and trailing-slash routing |
+
+Static HTML provides an initial document, then JavaScript enhances the page. Keep page HTML and JavaScript-rendered content in sync when editing shared sections or menu data.
+
+## Deployment
+
+Import this repository into Vercel using **Other**, leave the build command empty, and set the output directory to **`.`**. No application environment variables are needed.
+
+Routes are designed for a **domain root**. Opening through `file://` or publishing unchanged beneath a GitHub Pages repository subdirectory will not resolve root-relative links correctly.
 
 ## Demo boundaries
 
-No payments are processed and no food orders are sent. The cart is stored only in the visitor's current browser tab session. Personal checkout details are not persisted. Reviews, hours and restaurant story are demo content. Menu prices are based on the supplied printed menu. Delivery is Rs. 150; takeaway is free.
+- No food orders, payments or deliveries are transmitted.
+- Cart state exists only in the current browser tab session; checkout details are not persisted.
+- Demo delivery is **Rs. 150** and takeaway is free. Confirm actual fees and service times before commercial use.
+- Reviews, hours and restaurant story include demo content; menu prices come from the supplied printed menu.
+- Illustrative photos and Google Fonts require external network access. The local logo is used as an image fallback.
+- Social-account ownership and business details need verification before launch.
 
-Logo and printed menu are bundled in `assets`. Illustrative food/lifestyle photos load from external image hosts; Google Fonts also require an internet connection. Local logo fallback handles image-load errors. Social account ownership is not verified.
+The supplied contact section uses **2Km Daska Road, Sialkot, Pakistan** and **+92 326 8748721**. These are restaurant content, not the developer’s personal contact details.
 
-Address: 2Km Daska Road, Sialkot, Pakistan.
-Phone / WhatsApp: +92 326 8748721.
-Credit: Made by @subhanmiaan.
+## Validation notes
 
-## Validation
+The original implementation records passing JavaScript syntax, route/asset references, page headings/IDs, component rendering and delivery/takeaway calculation checks. A target-device visual review is still recommended; this documentation refresh does not claim a new end-to-end browser test.
 
-JavaScript syntax, page-component rendering, route/local-asset references, unique page headings and IDs, and delivery/takeaway calculation checks passed. Visual browser testing was not available in the authoring environment.
+## Related projects
+
+- [Stash Pizza](https://github.com/subhanmiaan/RestaurantsMenuAndOrderService2) — a red-and-white adaptation.
+- [BuntySajji](https://github.com/subhanmiaan/buntysajji) — a desi menu experience with truck-art accents.
+
+---
+
+Built by [**Muhammad Subhan / @subhanmiaan**](https://github.com/subhanmiaan) · [Contact the developer](mailto:wsubhan5969@gmail.com)
